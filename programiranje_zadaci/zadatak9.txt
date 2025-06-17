@@ -1,0 +1,28 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+struct radnik
+{
+float brsati,cena;
+};
+
+int main()
+{
+    radnik a,b;
+    float p1,p2;
+    printf("Unesi broj sati za prvog radnika");
+    scanf("%f", &a.brsati);
+    printf("Unesite cenu po satu za prvog radnika");
+    scanf("%f", &a.cena);
+    printf("Unesi broj sati za drugog radnika");
+    scanf("%f", &b.brsati);
+    printf("Unesite cenu po satu za drugog radnika");
+    scanf("%f", &b.cena);
+    p1=a.brsati*a.cena;
+    p2=b.brsati*b.cena;
+    if(p1>p2) printf("\n\n Prvi radnik ima vecu platu %10.2f",p1);
+    if(p2>p1) printf("\n\n Drugi radnik ima vecu platu %10.2f",p2);
+    if(p1==p2) printf("\n\n Imaju istu platu %10.2f",p1);
+    return 0;
+}

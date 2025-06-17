@@ -1,0 +1,25 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+int poredjenje(int a, int b, int c)
+{
+int rezultat;
+if(a>=b&&a>=c) rezultat=a;
+if(b>=a&&b>=c) rezultat=b;
+if(c>=a&&c>=b) rezultat=c;
+return rezultat;
+}
+int main()
+{
+   int x,y,z,q;
+   printf("Unesi prvi broj\n");
+   scanf("%d", &x);
+   printf("Unesi drugi broj\n");
+   scanf("%d", &y);
+   printf("Unesi treci broj\n");
+   scanf("%d", &z);
+   q=poredjenje(x,y,z);
+   printf("\nNajveci broj je %d",q);
+    return 0;
+}

@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+
+struct balvan {
+    float obim;
+    float visina;
+};
+
+int main() {
+    FILE *f;
+    struct balvan b;
+    int i;
+    float ukupnaZapremina = 0.0, r, V;
+
+    srand(time(0));
+
+    f = fopen("balvani.bin", "wb");
+    if (f == NULL) return 1;
+
+    for (i = 0; i < 20; i++) {
+        b.obim = 1.0 + (rand() % 100) / 10.0;
+        b.visina = 1.0 + (rand() % 100) / 10.0;
+        fwrite(&b, sizeof(b), 1, f);
+    }
+    fclose(f);
+
+    f = fopen("balvani.bin", "rb");
+    if (f == NULL) return 1;
+
+    while (fread(&b, sizeof(b), 1, f) == 1) {
+        r = b.obim / (2 * M_PI);
+        V = M_PI * r * r * b.visina;
+        ukupnaZapremina += V;
+    }
+    fclose(f);
+
+    printf("Ukupna zapremina drveta: %.2f kubnih metara\n", ukupnaZapremina);
+
+    return 0;
+}

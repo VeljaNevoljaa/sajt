@@ -1,0 +1,23 @@
+//Na disku postoji tekstualni fajl koji ima 10 celih brojeva odr.
+//razliku izmedju najveceg i najmanjeg broja u fajlu:
+#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+int main()
+{
+ int i,x,razlika,maxi=0,mini=1000000;
+ FILE *pok;
+ pok=fopen("podaci1.txt","r");
+ do{
+ fscanf(pok,"%d",&x);
+ if(x>maxi)maxi=x;
+ if(x<maxi)mini=x;
+ }
+ while(feof(pok)==0);
+ fclose(pok);
+ printf("najveci clan je %d\n",maxi);
+ printf("najmanji clan je %d\n",mini);
+ razlika=maxi-mini;
+ printf("razlika je %d",razlika);
+ return 0;
+}

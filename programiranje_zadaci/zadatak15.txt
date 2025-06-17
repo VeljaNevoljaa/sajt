@@ -1,0 +1,27 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+int celeplocice(int a,int b,int c, int d)
+{
+    int rezultat,celex,celey;
+    celex=a/c;
+    celey=b/d;
+    rezultat=celex*celey;
+    return rezultat;
+}
+int main()
+{
+    int x,y,z,w,q;
+    printf("Unesi sirinu sobe\n");
+    scanf("%d", &x);
+    printf("Unesi duzinu sobe\n");
+    scanf("%d", &y);
+    printf("Unesi sirinu plocica\n");
+    scanf("%d", &z);
+    printf("Unesi duzinu plocica\n");
+    scanf("%d", &w);
+    q= celeplocice(x,y,z,w);
+    printf("\n Rezultat je %d",q);
+    return 0;
+}

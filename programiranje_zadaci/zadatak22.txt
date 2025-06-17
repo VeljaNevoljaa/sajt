@@ -1,0 +1,54 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+class oblik{
+protected:
+    float poluprecnik;
+public:
+    void dodeljivanje(float a)
+    {
+        poluprecnik=a;
+    }
+};
+class krug:public oblik
+{
+public:
+    float povrsina()
+    {
+        return poluprecnik*poluprecnik*3.14;
+    }
+    float obim()
+    {
+        return 2*poluprecnik*3.14;
+    }
+};
+class lopta:public oblik
+{
+public:
+    float povrsina()
+    {
+            return 4*poluprecnik*poluprecnik*3.14;
+    }
+    float zapremina()
+    {
+        return (4/3)*poluprecnik*poluprecnik*poluprecnik*3.14;
+    }
+};
+int main()
+{
+  krug mika;
+  lopta zika;
+  float s1;
+ printf("Unesi poluprecnik kruga mika\n");
+   scanf("%f", &s1);
+   mika.dodeljivanje(s1);
+      printf("Unesi poluprecnik lopte zika\n");
+   scanf("%f", &s1);
+   zika.dodeljivanje(s1);
+   printf("\nKrug ima povrsinu: %10.2f",mika.povrsina());
+ printf("\nKrug ima obim: %10.2f",mika.obim());
+ printf("\nLopta ima povrsinu: %10.2f",zika.povrsina());
+  printf("\nLopta ima zapremina: %10.2f",zika.zapremina());
+    return 0;
+}

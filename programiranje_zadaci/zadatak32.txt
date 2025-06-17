@@ -1,0 +1,30 @@
+//Na disku postoji txt fajl formirati novi txt fajl tako da u svakom redu
+//upisujemo zbir cifara broja iz fajla koji postoji
+#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+int zbirCifara(int broj)
+{
+ int zbir = 0;
+ while (broj != 0)
+ {
+ zbir += broj % 10;
+ broj /= 10;
+ }
+ return zbir < 0 ? -zbir : zbir;
+}
+int main()
+{
+ FILE *pok, *rok;
+ int broj;
+ pok = fopen("pok.txt", "r");
+ rok = fopen("rok.txt", "w");
+ while (fscanf(pok, "%d", &broj) == 1)
+ {
+ fprintf(rok, "%d\n", zbirCifara(broj));
+ }
+ fclose(pok);
+ fclose(rok);
+ printf(" Rezultati su upisani u fajl rok.txt.\n");
+ return 0;
+}

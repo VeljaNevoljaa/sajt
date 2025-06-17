@@ -1,0 +1,45 @@
+//Formirati binarni fajl i u njega upisati random 100 el.
+//svaki el predstavlja strukturu koja sadrzi podatke o koordinatama tacke
+u ravni.
+//Nakon formiranja fajla potrebno je odrediti koja je tacka najdalja od
+koordinatnog pocetka.
+#include <iostream>
+#include<math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+struct tacka
+{
+ int x,y;
+};
+int main()
+{
+ FILE *pok;
+ int i,z,maxi=0;
+ tacka a;
+ srand(time(0));
+ pok=fopen("tacke.bin", "wb");
+ for(i=0; i<100; i++)
+ {
+ a.x=rand()%1000;
+ a.y=rand()%1000;
+ fwrite(&a, sizeof(a),1,pok);
+ }
+ fclose(pok);
+ i=1;
+ pok=fopen("tacke.bin", "rb");
+ while(feof(pok)==0)
+ {
+ fread(&a, sizeof(a),1,pok);
+ if(feof(pok)==0)
+ {
+ z=sqrt(a.x*a.x+a.y*a.y);
+ printf("%d tacka %d je udaljena %d\n", i,a.x,a.y);
+ if(z>maxi) maxi=z;
+ i++;
+ }
+ }
+ fclose(pok);
+ printf("Najdalja tacka je udaljena %d \n",maxi);
+ return 0;
+}

@@ -1,0 +1,53 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+class drvo{
+protected:
+    float obim,visina;
+public:
+    void dodeljivanje(float a,float b)
+    {
+        obim=a;
+        visina=b;
+    }
+};
+class bor:public drvo
+{
+
+public:
+    float povrsina()
+    {
+        float r;
+        return obim*visina+2*r*r*3.14;
+    }
+};
+class jela:public drvo
+{
+public:
+    float zapremina()
+    {
+        float r;
+        r=obim/6.28;
+        return r*r*3.14*visina;
+    }
+};
+int main()
+{
+  bor x;
+  jela y;
+  float r1,r2;
+  printf("\nUnesi obim bora:");
+  scanf("%f", &r1);
+   printf("\nUnesi visinu bora:");
+  scanf("%f", &r2);
+  x.dodeljivanje(r1,r2);
+   printf("\nUnesi obim jele:");
+  scanf("%f", &r1);
+   printf("\nUnesi visinu jele:");
+  scanf("%f", &r2);
+  y.dodeljivanje(r1,r2);
+   printf("\nPovrsina bora je %10.2f",x.povrsina());
+     printf("\nPovrsina jela je %10.2f",y.zapremina());
+    return 0;
+}

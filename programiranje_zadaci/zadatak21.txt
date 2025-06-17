@@ -1,0 +1,49 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+class automobil{
+protected:
+    float potrosnja,kilometraza;
+public:
+    void dodeljivanje(float a,float b)
+    {
+        potrosnja=a;
+        kilometraza=b;
+    }
+};
+class reno:public automobil
+{
+public:
+    float ukupno()
+    {
+        return (kilometraza/100)*potrosnja;
+    }
+};
+class pezo:public automobil
+{
+public:
+    float ukupno()
+    {
+            return (kilometraza/100)*potrosnja;
+    }
+};
+int main()
+{
+  reno x;
+  pezo y;
+  float r1,r2;
+  printf("\nUnesi potrosnju za renoa:");
+  scanf("%f", &r1);
+   printf("\nUnesi kilometrazu za renoa:");
+  scanf("%f", &r2);
+  x.dodeljivanje(r1,r2);
+   printf("\nUnesi potrosnju za pezoa:");
+  scanf("%f", &r1);
+   printf("\nUnesi kilometrazu za pezoa:");
+  scanf("%f", &r2);
+  y.dodeljivanje(r1,r2);
+   printf("\nReno je potrosio %10.2f",x.ukupno());
+     printf("\nPezo je potrosio %10.2f",y.ukupno());
+    return 0;
+}

@@ -1,0 +1,20 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include<time.h>
+using namespace std;
+
+int main()
+{
+   int i,niz[10];
+   srand(time(0));
+   for(i=0;i<10;i++)
+   {
+       niz[i]=rand()%100+1;
+   }
+   for(i=0;i<10;i++)
+{
+     printf("%d. clan niza je %d\n",i+1,niz[i]);
+}
+    return 0;
+}

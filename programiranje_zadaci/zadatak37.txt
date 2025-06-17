@@ -1,0 +1,40 @@
+//Na trecu lokaciju binarnog fajla upisati broj koji korisnik unese
+#include <iostream>
+#include<time.h>
+#include <stdio.h>
+#include <stdlib.h>
+struct covek
+{
+ int tezina,visina;
+};
+int main()
+{
+ FILE *pok;
+ int i,x;
+ covek osoba;
+ srand(time(0));
+ pok=fopen("podaci.bin", "wb");
+ for(i=0; i<10; i++)
+ {
+ osoba.tezina=rand()%100;
+ osoba.visina=rand()%100;
+ fwrite(osoba, sizeof(osoba),1,pok);
+ }
+ fclose(pok);
+ i=1;
+ pok=fopen("podaci.bin", "rb");
+ int maxi=0, mini=100000;
+ while(feof(pok)==0)
+ {
+ fwrite(osoba, sizeof(osoba),1,pok);
+ if(feof(pok)==0) fprintf("%d osoba ima tezinu %d a visinu %d\n",
+osoba.visina);
+ i++;
+ if(osoba.tezina<mini) mini=osoba.tezina;
+ if(osoba.visinia>maxi) maxi=osoba.visina;
+ }
+ printf("Najvisa osoba ima %d cm\n\n",maxi);
+ printf("Najlaksa osoba ima %d kg\n\n",mini);
+ fclose(pok);
+ return 0;
+}

@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+
+#define MAX_OBLICA 1000
+#define MAXI 30
+#define MINI 10
+
+struct drvo {
+    float poluprecnik;
+    float duzina;
+};
+
+int main() {
+    struct drvo oblice[MAX_OBLICA];
+    float ukupnaZapremina = 0.0;
+    float maxOblica = 0.0;
+    int i, poz = 0;
+
+    srand(time(0));
+
+
+    for (i = 0; i < MAX_OBLICA; i++) {
+        oblice[i].poluprecnik = (rand() % (MAXI - MINI + 1)) + MINI; 
+        oblice[i].duzina = (rand() % (MAXI - MINI + 1)) + MINI; 
+
+      
+        float zapremina = M_PI * pow(oblice[i].poluprecnik / 100.0, 2) * (oblice[i].duzina / 100.0); 
+        ukupnaZapremina += zapremina;
+
+       
+        if (oblice[i].poluprecnik > maxOblica) {
+            maxOblica = oblice[i].poluprecnik;
+            poz = i;
+        }
+
+        
+        printf("Oblica %d: Poluprecnik = %.2f cm, Duzina = %.2f cm, Zapremina = %.4f m³\n\n",
+               i + 1, oblice[i].poluprecnik, oblice[i].duzina, zapremina);
+    }
+
+  
+    printf("\nUkupna zapremina drva za zimu: %.4f m³\n\n", ukupnaZapremina);
+    printf("Najveca oblica ima poluprecnik: %.2f cm i duzinu: %.2f cm\n",
+           oblice[poz].poluprecnik, oblice[poz].duzina);
+
+    return 0;

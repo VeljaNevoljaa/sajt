@@ -1,0 +1,193 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0d111c;
+    color: #ffffff;
+    scroll-behavior: smooth;
+}
+
+
+.logo {
+    min-height: 60px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #ff4c4c;
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(255, 76, 76, 0.2);
+    backdrop-filter: blur(8px);
+    width: 98%;
+    text-align:center;
+}
+
+    .logo p {
+        padding: 8px;
+        font-size: 40px;
+        margin-left: 20px;
+    }
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 40px 40px;
+    margin-top: 110px;
+    background: rgba(26, 29, 46, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(255, 76, 76, 0.2);
+    backdrop-filter: blur(8px);
+    position: relative;
+    z-index: 10;
+}
+
+    .navbar a {
+        position: relative;
+        font-size: 40px;
+        color: #d9e8db;
+        font-weight: 600;
+        text-decoration: none;
+        margin: 0 30px;
+        padding-bottom: 4px;
+        transition: color 0.3s ease;
+    }
+
+        .navbar a:first-child {
+            margin-left: 0;
+        }
+
+        .navbar a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff4c4c;
+            transition: width 0.4s ease;
+            border-radius: 2px;
+        }
+
+        .navbar a:hover {
+            color: #ff4c4c;
+        }
+
+            .navbar a:hover::before {
+                width: 100%;
+            }
+
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        margin-top: 40px;
+    }
+
+        .navbar a {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+    .nav-links a {
+        color: #fff;
+        margin-left: 10px;
+        text-decoration: none;
+        font-size: 35px;
+        gap: 3px;
+    }
+
+.hero {
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #121624 0%, #1a1d2e 100%);
+    border-radius: 16px;
+    max-width: 700px;
+    margin: 2rem auto 4rem auto;
+    box-shadow: 0 8px 20px rgba(255, 76, 76, 0.15);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+    .hero h1 {
+        font-size: 60px;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #ff4c4c;
+        text-shadow: 0 0 8px #ff4c4c88;
+        letter-spacing: 1.2px;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        color: #bbb;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: -30%;
+        left: -30%;
+        width: 160%;
+        height: 160%;
+        background: radial-gradient(circle at center, #ff4c4c44, transparent 70%);
+        animation: pulse 6s ease-in-out infinite;
+        z-index: 0;
+        border-radius: 50%;
+    }
+
+    .hero * {
+        position: relative;
+        z-index: 1;
+    }
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.6;
+    }
+}
+
+
+footer {
+    background-color: #1a1d2e;
+    color: #aaa;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 3rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #333;
+    font-size: 24px;
+}
+
+#centar{
+    text-align:center;
+}
+#tekst {
+    font-size: 18px;
+    padding: 20px;
+    margin-top:150px;
+
+}

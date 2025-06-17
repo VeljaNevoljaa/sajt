@@ -1,0 +1,35 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+using namespace std;
+struct njiva{
+    float duzina,sirina;
+};
+
+int main()
+{
+   njiva niz[15];
+   int i,poz=0;
+   float velicinanjive,mini;
+   srand(time(0));
+   for(i=0;i<15;i++)
+   {
+       niz[i].duzina=rand()%200+50;
+       niz[i].sirina=rand()%900+300;
+   }
+       mini=niz[0].duzina*niz[0].sirina;
+       for(i=0;i<15;i++){
+            velicinanjive=niz[i].duzina*niz[i].sirina;
+       printf("\n%d. njiva seljaka ima povrsinu %.2f", i + 1, velicinanjive);
+       if(velicinanjive<mini)
+       {
+           mini=velicinanjive;
+           poz=i;
+       }
+       }
+        printf("\n\nNajmanja njiva ima povrsinu %.2f", mini);
+    printf("\nOvu njivu ima %d. seljak\n", poz + 1);
+    return 0;
+   }

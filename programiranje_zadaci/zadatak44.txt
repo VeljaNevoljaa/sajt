@@ -1,0 +1,59 @@
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+class Lopta {
+private:
+    double poluprecnik;
+
+public:
+    double zapremina;
+
+    void setPoluprecnik(double r) {
+        if (r > 0)
+            poluprecnik = r;
+        else
+            poluprecnik = 0;
+    }
+
+    double getPoluprecnik() {
+        return poluprecnik;
+    }
+
+    void izracunajZapreminu() {
+        zapremina = (4.0 / 3.0) * M_PI * pow(poluprecnik, 3);
+    }
+};
+
+int main() {
+    const int N = 8;
+    Lopta matrica[N][N];
+    srand(time(0));
+
+    int minI = 0, minJ = 0;
+    double minZapremina;
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            double r = 1 + rand() % 20;
+            matrica[i][j].setPoluprecnik(r);
+            matrica[i][j].izracunajZapreminu();
+
+            if (i == 0 && j == 0)
+                minZapremina = matrica[i][j].zapremina;
+            else if (matrica[i][j].zapremina < minZapremina) {
+                minZapremina = matrica[i][j].zapremina;
+                minI = i;
+                minJ = j;
+            }
+        }
+    }
+
+    printf("Najmanja lopta se nalazi na poziciji [%d][%d]\n", minI, minJ);
+    printf("Poluprecnik: %.2f\n", matrica[minI][minJ].getPoluprecnik());
+    printf("Zapremina: %.2f\n", matrica[minI][minJ].zapremina);
+
+    return 0;
+}

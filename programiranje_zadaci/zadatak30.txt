@@ -1,0 +1,42 @@
+//Korisnik ucitava broj r, formiramo fajl podaci.txt i podaci6.txt.
+//svi brojevi koji su manji pd r idu u podaci5.txt i podaci6.txt iz fajla
+podaci.txt
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+int main()
+{
+ FILE*pok;
+ FILE*rok;
+ FILE*sok;
+ int x,r;
+ printf("\n\n unesite broj R\n");
+ scanf("%d",&r);
+ pok=fopen("podaci1.txt","r");
+ rok=fopen("podaci5.txt","w");
+ sok=fopen("podaci6.txt","w");
+ do
+ {
+ fscanf(pok,"%d",&x);
+ if(feof(pok)==0)
+ {
+ if(x>r)fprintf(rok,"%d",x);
+ if(x<r)fprintf(sok,"%d",x);
+ }
+ }
+ while(feof(pok)==0);
+ fclose(pok);
+ fclose(rok);
+ fclose(sok);
+ pok=fopen("podaci5.txt","r");
+ do
+ {
+ fscanf(pok,"%d",&x);
+ if(feof(pok)==0) printf("%d\n",x);
+ }
+ while(feof(pok)==0);
+ fclose(pok);
+ return 0;
+ return 0;
+}

@@ -1,0 +1,45 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+class krug{
+protected:
+    float poluprecnik;
+public:
+    void dodeljivanje(float a)
+    {
+        poluprecnik=a;
+    }
+    float povrsina()
+    {
+        return poluprecnik*poluprecnik*3.14;
+    }
+    float obim()
+    {
+        return 2*poluprecnik*3.14;
+    }
+};
+int main()
+{
+   krug zz92,mika;
+   float s1;
+   printf("Unesi poluprecnik kruga zz92\n");
+   scanf("%f", &s1);
+   zz92.dodeljivanje(s1);
+      printf("Unesi poluprecnik kruga mika\n");
+   scanf("%f", &s1);
+   mika.dodeljivanje(s1);
+   if(zz92.povrsina()>mika.povrsina())
+   {
+       printf("Veci je prvi krug\n");
+   }
+    if(zz92.povrsina()<mika.povrsina())
+   {
+       printf("Veci je drugi krug\n");
+   }
+    if(zz92.povrsina()==mika.povrsina())
+   {
+       printf("Isti su\n");
+   }
+
+}

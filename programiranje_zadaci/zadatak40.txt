@@ -1,0 +1,37 @@
+struct djaka{
+int mat,srp,fiz;
+};
+int main()
+{
+FILE*pok;
+djaka ucenik;
+int i,r,brojac=0;
+float a,maxi=0;
+srand(time(0));
+pok=fopen("djaci.bin","wb");
+for(i=0,i<20;i++)
+{
+ucenik.mat=srand()%5+1;
+ucenik.srp=srand()%5+1;
+ucenik.fiz=srand()%5+1;
+fwrite(&ucenik,sizeof(ucenik),1,pok);
+}
+fclose(pok);
+i=1; brojac=0;
+pok=fopen("djaci.bin","rb");
+while(feof(pok)==0)
+{
+fread(&ucenik,sizeof(ucenik),1,pok);
+if(feof(pok)==0)
+{
+z=ucenik.mat+ucenik.srp+ucenik.fiz);
+z=/3;
+printf("%d. Ucenik ima ocene%d, %d i %d i ima prosek %10.2f\n",i,ucenik.mat,ucenik.srp,ucenik.fiz);
+if(z>maxi)maxi=z
+i++;
+}
+}
+fclose(pok);
+printf("Najbolji ucenik ima prosek %10.2f\n",maxi);
+return 0;
+}

@@ -1,0 +1,44 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+
+class balvan {
+protected:
+    float obim, visina;
+public:
+    balvan(float a, float b) {
+        obim = a;
+        visina = b;
+    }
+    float zapremina() {
+        return (obim / 6.28) * (obim / 6.28) * 3.14 * visina;
+    }
+};
+
+int main() {
+    srand(time(0));
+    float o1, v1, maximum = 0;
+    float niz[100];
+
+    for (int i = 0; i < 100; i++) {
+        o1 = rand() % 100 + 1;
+        v1 = rand() % 100 + 1;
+
+        balvan x(o1, v1);
+        niz[i] = x.zapremina();
+
+
+        printf("\nZapremina balvana %d: %10.2f\n", i + 1, niz[i]);
+
+
+        if (maximum < niz[i])
+            maximum = niz[i];
+    }
+
+
+    printf("\nMaksimalna zapremina balvana je: %10.2f\n", maximum);
+
+    return 0;
+}

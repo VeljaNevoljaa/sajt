@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+typedef struct {
+    double duzina;
+    double sirina;
+} Pravougaonik;
+
+void setDuzina(Pravougaonik *p, double d) {
+    if (d > 0) p->duzina = d;
+    else p->duzina = 0;
+}
+
+void setSirina(Pravougaonik *p, double s) {
+    if (s > 0) p->sirina = s;
+    else p->sirina = 0;
+}
+
+double getDuzina(Pravougaonik *p) {
+    return p->duzina;
+}
+
+double getSirina(Pravougaonik *p) {
+    return p->sirina;
+}
+
+double obim(Pravougaonik *p) {
+    return 2 * (p->duzina + p->sirina);
+}
+
+int main() {
+    Pravougaonik p;
+    double d, s;
+
+    printf("Unesite duzinu: ");
+    scanf("%lf", &d);
+    printf("Unesite sirinu: ");
+    scanf("%lf", &s);
+
+    setDuzina(&p, d);
+    setSirina(&p, s);
+
+    printf("Obim pravougaonika je: %.2f\n", obim(&p));
+
+    return 0;
+}

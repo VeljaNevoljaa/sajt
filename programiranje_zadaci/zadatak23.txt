@@ -1,0 +1,58 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+class prosta{
+protected:
+    float duzina,sirina,visina;
+public:
+    void dodeljivanje(float a,float b, float c)
+    {
+        duzina=a;
+        sirina=b;
+        visina=c;
+    }
+};
+class soba:public prosta
+{
+public:
+    float povrsina()
+    {
+        return duzina*sirina;
+    }
+};
+class bazen:public prosta
+{
+public:
+    float zapremina()
+    {
+            return duzina*sirina*visina;
+    }
+};
+int main()
+{
+  soba mika;
+  bazen zika;
+  float s1,s2,s3;
+ printf("Unesi duzinu sobe\n");
+   scanf("%f", &s1);
+    printf("Unesi sirinu sobe\n");
+   scanf("%f", &s2);
+    printf("Unesi visinu sobe\n");
+   scanf("%f", &s3);
+   mika.dodeljivanje(s1,s2,s3);
+
+
+    printf("Unesi duzinu bazena\n");
+   scanf("%f", &s1);
+    printf("Unesi sirinu bazena\n");
+   scanf("%f", &s2);
+    printf("Unesi visinu bazena\n");
+   scanf("%f", &s3);
+   zika.dodeljivanje(s1,s2,s3);
+
+
+   printf("\nSoba ima povrsinu: %10.2f",mika.povrsina());
+  printf("\nBazen ima zapremina: %10.2f",zika.zapremina());
+    return 0;
+}

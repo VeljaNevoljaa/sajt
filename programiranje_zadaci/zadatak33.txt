@@ -1,0 +1,36 @@
+//Formirati novi fajl i u njemu upisati brojeve iz postojeceg od
+najmanjeg do najveceg:
+#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+int main()
+{
+ FILE *pok, *rok;
+ int brojevi[100], i = 0, temp;
+ pok = fopen("pok.txt", "r");
+ while (fscanf(pok, "%d", &brojevi[i]) == 1)
+ {
+ i++;
+ }
+ fclose(pok);
+ for (int j = 0; j < i - 1; j++)
+ {
+ for (int k = j + 1; k < i; k++)
+ {
+ if (brojevi[j] < brojevi[k])
+ {
+ temp = brojevi[j];
+ brojevi[j] = brojevi[k];
+ brojevi[k] = temp;
+ }
+ }
+ }
+ rok = fopen("rok.txt", "w");
+ for (int j = 0; j < i; j++)
+ {
+ fprintf(rok, "%d\n", brojevi[j]);
+ }
+ fclose(rok);
+ printf("Brojevi su sortirani i upisani u fajl rok.txt.\n");
+ return 0;
+}

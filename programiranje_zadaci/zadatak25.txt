@@ -1,0 +1,29 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+class telo{
+protected:
+    float masa,povrsina;
+public:
+    telo(float a, float b)
+    {
+        masa=a;
+        povrsina=b;
+    }
+float pritisak()
+{
+    return (masa*9.81)/povrsina;
+}
+};
+int main()
+{
+    float x,y;
+    printf("\nUnesi masu tela\n");
+    scanf("%f", &x);
+     printf("\nUnesi dodirnu povrsinu tela\n");
+    scanf("%f", &y);
+    telo kutija(x,y);
+    printf("\nPritisak tela je %10.2f",kutija.pritisak());
+    return 0;
+}

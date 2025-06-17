@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+struct tacka {
+    int x, y;
+};
+
+int main() {
+    FILE *pok;
+    int i, z, max_kv = 0, r, r_kv, brojUnutarKruga = 0;
+    struct tacka a;
+
+    srand(time(0));
+    pok = fopen("tacke.bin", "wb");
+    if (pok == NULL) {
+        printf("Greska pri otvaranju fajla za pisanje.\n");
+        return 1;
+    }
+
+    for (i = 0; i < 100; i++) {
+        a.x = rand() % 1000;
+        a.y = rand() % 1000;
+        fwrite(&a, sizeof(a), 1, pok);
+    }
+    fclose(pok);
+
+      printf("Unesite poluprecnik kruga: ");
+    scanf("%d", &r);
+    r_kv = r * r;  // kvadrat poluprečnika
+
+    i = 1;
+    pok = fopen("tacke.bin", "rb");
+    if (pok == NULL) {
+        printf("Greska pri otvaranju fajla za citanje.\n");
+        return 1;
+    }
+
+    while (fread(&a, sizeof(a), 1, pok) == 1) {
+        z = a.x * a.x + a.y * a.y; // kvadrat rastojanja do koordinatnog početka
+        printf("%d. tacka (%d, %d) ima kvadrat udaljenosti %d\n", i, a.x, a.y, z);
+        if (z > max_kv) max_kv = z;
+        if (z <= r_kv) brojUnutarKruga++;
+        i++;
+    }
+    fclose(pok);
+
+    printf("Kvadrat najvece udaljenosti: %d (udaljenost: %.2f)\n", max_kv, sqrt((double)max_kv));
+    printf("Broj tacaka unutar kruga poluprecnika %d: %d\n", r, brojUnutarKruga);
+
+    return 0;
+}
+

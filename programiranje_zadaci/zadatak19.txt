@@ -1,0 +1,50 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+class poligon{
+protected:
+    float duzina,sirina;
+public:
+    void dodeljivanje(float a,float b)
+    {
+        duzina=a;
+        sirina=b;
+    }
+};
+class cetvorougao:public poligon
+{
+
+public:
+    float povrsina()
+    {
+        return duzina*sirina;
+    }
+};
+class trougao:public poligon
+{
+public:
+    float povrsina()
+    {
+        return duzina*sirina;
+    }
+};
+int main()
+{
+  cetvorougao x;
+  trougao y;
+  float p1,p2;
+  printf("\nUnesi duzinu cetvorougla:");
+  scanf("%f", &p1);
+   printf("\nUnesi sirinu cetvorougla:");
+  scanf("%f", &p2);
+  x.dodeljivanje(p1,p2);
+   printf("\nUnesi duzinu trougla:");
+  scanf("%f", &p1);
+   printf("\nUnesi sirinu trougla:");
+  scanf("%f", &p2);
+  y.dodeljivanje(p1,p2);
+   printf("\nPovrsina cetvorougla je %10.2f",x.povrsina());
+     printf("\nPovrsina trougla je %10.2f",y.povrsina());
+    return 0;
+}

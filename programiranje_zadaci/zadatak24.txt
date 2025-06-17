@@ -1,0 +1,59 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+class guma{
+protected:
+    float precnik,sirina,debljina;
+public:
+    void dodeljivanje(float a,float b, float c)
+    {
+        precnik=a;
+        sirina=b;
+        debljina=c;
+    }
+};
+class zimska:public guma
+{
+public:
+    float povrsina()
+    {
+        return precnik*sirina;
+    }
+};
+class letnja:public guma
+{
+public:
+    float zapremina()
+    {
+        float d;
+           d=precnik-2*debljina;
+    }
+};
+int main()
+{
+  zimska x;
+  letnja y;
+  float s1,s2,s3;
+ printf("Unesi precnik zimske\n");
+   scanf("%f", &s1);
+    printf("Unesi sirinu zimske\n");
+   scanf("%f", &s2);
+    printf("Unesi debljinu zimske\n");
+   scanf("%f", &s3);
+   x.dodeljivanje(s1,s2,s3);
+
+
+  printf("Unesi precnik letnje\n");
+   scanf("%f", &s1);
+    printf("Unesi sirinu letnje\n");
+   scanf("%f", &s2);
+    printf("Unesi debljinu letnje\n");
+   scanf("%f", &s3);
+   y.dodeljivanje(s1,s2,s3);
+
+
+   printf("\nPovrsina koja pipa zemljuje: %10.2f",x.povrsina());
+  printf("\nZapremina bez felne je: %10.2f",y.zapremina());
+    return 0;
+}

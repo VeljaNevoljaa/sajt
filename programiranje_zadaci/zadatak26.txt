@@ -1,0 +1,56 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+
+class telo {
+protected:
+    float masa, povrsina;
+public:
+    telo(float a, float b) {
+        masa = a;
+        povrsina = b;
+    }
+    float pritisak() {
+        return (masa * 9.81) / povrsina;
+    }
+};
+
+int main() {
+    float x, y, maximum;
+
+
+    printf("\nUnesi masu prvog tela:\n");
+    scanf("%f", &x);
+    printf("\nUnesi dodirnu povrsinu prvog tela:\n");
+    scanf("%f", &y);
+    telo kutija1(x, y);
+    printf("\nPritisak prvog tela je: %10.2f\n", kutija1.pritisak());
+
+
+    printf("\nUnesi masu drugog tela:\n");
+    scanf("%f", &x);
+    printf("\nUnesi dodirnu povrsinu drugog tela:\n");
+    scanf("%f", &y);
+    telo kutija2(x, y);
+    printf("\nPritisak drugog tela je: %10.2f\n", kutija2.pritisak());
+
+
+    printf("\nUnesi masu treceg tela:\n");
+    scanf("%f", &x);
+    printf("\nUnesi dodirnu povrsinu treceg tela:\n");
+    scanf("%f", &y);
+    telo kutija3(x, y);
+    printf("\nPritisak treceg tela je: %10.2f\n", kutija3.pritisak());
+
+
+    maximum = kutija1.pritisak();
+    if (kutija2.pritisak() > maximum)
+        maximum = kutija2.pritisak();
+    if (kutija3.pritisak() > maximum)
+        maximum = kutija3.pritisak();
+
+    printf("\nNajveci pritisak tela je: %10.2f\n", maximum);
+
+    return 0;
+}

@@ -1,0 +1,19 @@
+//Formirati binarni fajl koji sadrzi 10 rand celih brojeva brojeva:
+#include <iostream>
+#include<time.h>
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+ FILE *pok;
+ int i,x;
+ srand(time(0));
+ pok=fopen("brojevi.bin","wb");
+ for(i=0; i<100; i++)
+ {
+ x=rand()%100+1;
+ fwrite(&x,sizeof(x),1,pok);
+ }
+ fclose(pok);
+ return 0;
+}

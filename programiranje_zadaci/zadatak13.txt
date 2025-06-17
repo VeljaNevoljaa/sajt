@@ -1,0 +1,21 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+int sabiranje(int a, int b)
+{
+int rezultat;
+rezultat=a+b;
+return rezultat;
+}
+int main()
+{
+int x,y,z;
+printf("Uneti prvi broj\n");
+scanf("%d", &x);
+printf("Uneti drugi broj\n");
+scanf("%d", &y);
+z=sabiranje(x,y);
+printf("Rezultat je %d\n",z);
+    return 0;
+}

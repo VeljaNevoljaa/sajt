@@ -1,0 +1,29 @@
+//Formirati tekstualni fajl i u njega upisati 10 celih brojeva.
+//Nakon formiranja fajlova sve clanove fajla ispisati na ekranu.
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+int main()
+{
+ FILE *pok;
+ int i,x;
+ srand(time(0));
+ pok=fopen("podaci1.txt", "w");
+ for(i=0; i<10; i++)
+ {
+ x=rand()%100+1;
+ fprintf(pok, "%d", x);
+ }
+ fclose(pok);
+ pok=fopen("podaci1.txt", "r");
+ do
+ {
+ fscanf(pok, "%d", &x);
+ if(feof(pok)==0) printf("%d\n", x);
+ }
+ while(feof(pok)==0);
+ fclose(pok);
+ return 0;
+}
